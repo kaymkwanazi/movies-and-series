@@ -4,7 +4,7 @@ import onlyMurder from '../images/series/onlyMurder.png'
 export const Navbar = () => {
   return (
     <div>
-        <div className='bg-cover bg-center bg-no-repeat h-96' style={{ backgroundImage: `url(${onlyMurder})`}} >
+        <div className='bg-cover bg-center bg-no-repeat position-relative h-96 object-contain' style={{ backgroundImage: `url(${onlyMurder})`}} >
             
             <nav className='flex items-center justify-between pr-12 pl-8 text-white'> 
               <a href='/' className='text-xl'><span className='text-blue-500'>Enter-</span>Stream</a>
