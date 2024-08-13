@@ -20,13 +20,21 @@ export const Movies = () => {
                 <button className='bg-custom-blue hover:bg-blue-600 text-white text-xs rounded-full w-20 h-8 py-1 px-6 gap-2.5 top-96 mt-9 mb-16'>Add</button>
             </Link>
          </div>
+<<<<<<< HEAD
             <div className='flex justify-center space-x-16'>
+=======
+            <div flex-row className='flex justify-center space-x-16'>
+>>>>>>> 77e769c89af361290d756b564f0ca3f31f29a6f9
                   <img src={avengers} className='h-56 w-40 object-container '></img>
                   <img src={hidden} className='h-56 w-40 object-container'></img>
                   <img src={frozen} className='h-56 w-40 object-container'></img>
                   <img src={queen} className='h-56 w-40 object-container'></img>
               </div>
+<<<<<<< HEAD
               <div className='flex justify-center space-x-16'>
+=======
+              <div flex-row className='flex justify-center space-x-16'>
+>>>>>>> 77e769c89af361290d756b564f0ca3f31f29a6f9
                   <img src={joker} className='h-56 w-40 object-container mt-20'></img>
                   <img src={minions} className='h-56 w-40 object-container mt-20'></img>
                   <img src={wick} className='h-56 w-40 object-container mt-20'></img>
