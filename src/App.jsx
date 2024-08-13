@@ -7,7 +7,6 @@ import { Movies } from './assets/components/Movies'
 import { Series } from './assets/components/Series'
 import { Addmovie } from './assets/components/Addmovie'
 import { MovieDetails } from './assets/components/MovieDetails'
-import { Addmovie} from './assets/components/Addmovie'
 
 
 function App() {

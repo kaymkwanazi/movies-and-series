@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Navbar } from './Navbar';
-=======
-import React from 'react'
 import avengers from '../images/movies/Avengers.jpg'
 import hidden from '../images/movies/hidden.png'
 import wick from '../images/movies/johnWick.png'
@@ -22,8 +19,7 @@ import TVD from '../images/series/TVD.jpg'
 import got from '../images/series/got.jpg'
 import rickmorty from '../images/series/rickMorty.png'
 import squidgame from '../images/series/squid.png'
-import {Link} from 'react-router-dom'
->>>>>>> 77e769c89af361290d756b564f0ca3f31f29a6f9
+
 
 export const Homepage = () => {
   const pathToMovies = '../../../Database/movies.json';
@@ -56,7 +52,6 @@ export const Homepage = () => {
 
   return (
     <div>
-<<<<<<< HEAD
       <Navbar title='' />
       {/* ------------mOVIES-------------- */}
           <div className='mt-20 mb-20 text-center decoration text-xl'>LATEST MOVIES</div>
@@ -120,7 +115,6 @@ export const Homepage = () => {
                       </button>
                   </div>
             </div>
-=======
       {/* ------------mOVIES-------------- */}
         <div className='mt-20 mb-20 text-center decoration text-xl'>LATEST MOVIES</div>
         <div>
@@ -169,7 +163,6 @@ export const Homepage = () => {
               </Link>
             </div>
         </div>
->>>>>>> 77e769c89af361290d756b564f0ca3f31f29a6f9
         
     </div>
   )
