@@ -1,0 +1,86 @@
+{
+    "movies": 
+        [
+            {
+                "movieID": 1,
+                "title": "Kingdom of the Planet of the Apes",
+                "description": "A new chapter in the Planet of the Apes saga, exploring the future of apes and humanity.",
+                "country": "USA",
+                "genre": ["Action", "Adventure", "Science Fiction"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://m.media-amazon.com/images/M/MV5BZGI4NTEwNTAtZDcwMi00MDkxLTg1OGYtNTZmMzE3ZDljNzVlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg"
+            },
+            {
+                "movieID": 2,
+                "title": "Bad Boy - Ride or Die",
+                "description": "A high-octane action movie following the thrilling adventures of a renegade duo.",
+                "country": "USA",
+                "genre": ["Action", "Thriller"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://example.com/path/to/bad_boy.jpg"
+            },
+            {
+                "movieID": 3,
+                "title": "My Spy",
+                "description": "A hardened CIA operative finds himself at the mercy of a precocious 9-year-old girl.",
+                "country": "USA",
+                "genre": ["Action", "Comedy", "Family"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://example.com/path/to/my_spy.jpg"
+            },
+            {
+                "movieID": 4,
+                "title": "The Beekeeper",
+                "description": "An intense thriller following a beekeeper who is drawn into a world of intrigue and danger.",
+                "country": "USA",
+                "genre": ["Thriller", "Drama"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://example.com/path/to/beekeeper.jpg"
+            },
+            {
+                "movieID": 5,
+                "title": "Mean Girls",
+                "description": "A modern adaptation of the classic teen comedy about high school social dynamics.",
+                "country": "USA",
+                "genre": ["Comedy", "Drama"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://example.com/path/to/mean_girls.jpg"
+            },
+            {
+                "movieID": 6,
+                "title": "The Garfield Movie",
+                "description": "A new animated adventure featuring everyone's favorite lasagna-loving cat.",
+                "country": "USA",
+                "genre": ["Animation", "Comedy", "Family"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://example.com/path/to/garfield.jpg"
+            },
+            {
+                "movieID": 7,
+                "title": "Divorce in the Black",
+                "description": "A dramatic exploration of the complexities and challenges faced during a high-profile divorce.",
+                "country": "USA",
+                "genre": ["Drama"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://example.com/path/to/divorce_in_black.jpg"
+            },
+            {
+                "movieID": 8,
+                "title": "After Everything",
+                "description": "The final installment in a romantic saga, exploring the aftermath of a tumultuous relationship.",
+                "country": "USA",
+                "genre": ["Romance", "Drama"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://example.com/path/to/after_everything.jpg"
+            }
+        ]
+  }
+  
