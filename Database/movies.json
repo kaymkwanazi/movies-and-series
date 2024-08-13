@@ -14,12 +14,12 @@
             {
                 "movieID": 2,
                 "title": "Bad Boy - Ride or Die",
-                "description": "A high-octane action movie following the thrilling adventures of a renegade duo.",
+                "description": "When their late police captain gets linked to drug cartels,wisecracking Miami cops \nMike Lowrey and Marcus Burnett embark on a dangerous mission to clear his name.",
                 "country": "USA",
-                "genre": ["Action", "Thriller"],
+                "genre": ["Action", "Comedy"],
                 "year": 2024,
                 "type": "Movie",
-                "imageUrl": "https://example.com/path/to/bad_boy.jpg"
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/8b/Bad_Boys_Ride_or_Die_%282024%29_poster.jpg"
             },
             {
                 "movieID": 3,
@@ -29,57 +29,137 @@
                 "genre": ["Action", "Comedy", "Family"],
                 "year": 2024,
                 "type": "Movie",
-                "imageUrl": "https://example.com/path/to/my_spy.jpg"
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/f6/My_spy_the_eternal_city_poster.jpg"
             },
             {
                 "movieID": 4,
                 "title": "The Beekeeper",
-                "description": "An intense thriller following a beekeeper who is drawn into a world of intrigue and danger.",
+                "description": "A kind-hearted landlady commits suicide after falling victim to a phishing scam, \nleading former Beekeeper operative Adam Clay to set out on a brutal \ncampaign for revenge upon those responsible.",
                 "country": "USA",
                 "genre": ["Thriller", "Drama"],
                 "year": 2024,
                 "type": "Movie",
-                "imageUrl": "https://example.com/path/to/beekeeper.jpg"
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/82/The_Beekeeper_poster.jpg"
             },
             {
                 "movieID": 5,
                 "title": "Mean Girls",
-                "description": "A modern adaptation of the classic teen comedy about high school social dynamics.",
+                "description": "Cady Heron is a hit with the Plastics, an A-list girl clique at her new school.\nBut everything changes when she makes the mistake of falling for Aaron Samuels, \nthe ex-boyfriend of alpha Plastic Regina George.",
                 "country": "USA",
                 "genre": ["Comedy", "Drama"],
                 "year": 2024,
                 "type": "Movie",
-                "imageUrl": "https://example.com/path/to/mean_girls.jpg"
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/06/Mean_girls_2024_poster.jpg"
             },
             {
                 "movieID": 6,
                 "title": "The Garfield Movie",
-                "description": "A new animated adventure featuring everyone's favorite lasagna-loving cat.",
+                "description": "After Garfield's unexpected reunion with his long-lost father ragged alley cat Vic, \nhe and his canine friend Odie are forced from their perfectly pampered lives\n to join Vic on a risky heist.",
                 "country": "USA",
                 "genre": ["Animation", "Comedy", "Family"],
                 "year": 2024,
                 "type": "Movie",
-                "imageUrl": "https://example.com/path/to/garfield.jpg"
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/91/The_Garfield_Movie_2024_poster.jpg"
             },
             {
                 "movieID": 7,
                 "title": "Divorce in the Black",
-                "description": "A dramatic exploration of the complexities and challenges faced during a high-profile divorce.",
+                "description": "Ava's husband Dallas leaves her heartbroken as he abandons their marriage.\nA dramatic exploration of the complexities and challenges faced during a high-profile divorce.",
                 "country": "USA",
                 "genre": ["Drama"],
                 "year": 2024,
                 "type": "Movie",
-                "imageUrl": "https://example.com/path/to/divorce_in_black.jpg"
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/8/83/Divorce_in_the_Black_%28poster%29.jpg"
             },
             {
                 "movieID": 8,
                 "title": "After Everything",
-                "description": "The final installment in a romantic saga, exploring the aftermath of a tumultuous relationship.",
+                "description": "The final installment in a romantic saga. After breaking up with his true love, \nbest-selling author Hardin Scott travels to Portugal in an attempt to make \namends for his past behavior.",
                 "country": "USA",
                 "genre": ["Romance", "Drama"],
                 "year": 2024,
                 "type": "Movie",
-                "imageUrl": "https://example.com/path/to/after_everything.jpg"
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/04/After_Everything_official_poster.png"
+            },
+            {
+                "movieID": 9,
+                "title": "Avengers End Game",
+                "description": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. \nWith the help of remaining allies, the Avengers assemble once more in order to \nreverse Thanos' actions and restore balance to the universe.",
+                "country": "USA",
+                "genre": ["Action", "Adventure", "Drama"],
+                "year": 2019,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
+            },
+            {
+                "movieID": 10,
+                "title": "Joker",
+                "description": "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. \nArthur wears two masks -the one he paints for his day job as a clown, \nand the guise he projects in a futile attempt to feel like he's part of the world around him.",
+                "country": "USA",
+                "genre": ["Thriller"],
+                "year": 2019,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e1/Joker_%282019_film%29_poster.jpg"
+            },
+            {
+                "movieID": 11,
+                "title": "Us",
+                "description": "In order to get away from their busy lives, the Wilson family takes a vacation to \nSanta Cruz, California. At night, four strangers break into Adelaide's childhood home. \nThe family is shocked to find out that the intruders look like them.",
+                "country": "USA",
+                "genre": ["Horror", "Thriller"],
+                "year": 2019,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/00/Us_%282019%29_theatrical_poster.png"
+            },
+            {
+                "movieID": 12,
+                "title": "Minions: The rise of Gru",
+                "description": "Minions: The Rise of Gru is an animated film that tells the untold story of a \ntwelve-year-old's dream to become the world's greatest supervillain. \nGrowing up in the 1970s, Gru hatches a plan to become evil enough to \njoin the supervillain supergroup known as the Vicious 61.",
+                "country": "USA",
+                "genre": ["Comedy","Action", "Animation"],
+                "year": 2022,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/45/Minions_The_Rise_of_Gru_poster.jpg"
+            },
+            {
+                "movieID": 13,
+                "title": "Deadpool & Wolverine",
+                "description": "Wolverine is recovering from his injuries when he crosses paths with the loudmouth Deadpool. \nThey team up to defeat a common enemy.",
+                "country": "USA",
+                "genre": ["Comedy","Action", "Science Fiction"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/4c/Deadpool_%26_Wolverine_poster.jpg"
+            },
+            {
+                "movieID": 14,
+                "title": "Aquaman and The Lost Kingdom",
+                "description": "The sequel to Aquaman (2018) follows Arthur Curry as he faces a new threat \nfrom Black Manta, who wields the Black Trident. He teams up with his brother Orm to \nsave Atlantis and the world from destruction.",
+                "country": "USA",
+                "genre": ["Action", "Adventure","Fantasy"],
+                "year": 2023,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Aquaman_and_the_Lost_Kingdom_poster.jpg/220px-Aquaman_and_the_Lost_Kingdom_poster.jpg"
+            },
+            {
+                "movieID": 15,
+                "title": "Godzilla x Kong: The New Empire",
+                "description": "Two ancient titans, Godzilla and Kong, clash in an epic battle as humans \nunravel their intertwined origins and connection to Skull Island's mysteries.",
+                "country": "USA",
+                "genre": ["Adventure","Action", "Fantasy"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Godzilla_x_kong_the_new_empire_poster.jpg/220px-Godzilla_x_kong_the_new_empire_poster.jpg"
+            },
+            {
+                "movieID": 16,
+                "title": "Despicable Me 4",
+                "description": "The fourth installment of the animated comedy \nfranchise follows Gru and his family as they face a new villain and a new baby.",
+                "country": "USA",
+                "genre": ["Comedy","Animation"],
+                "year": 2024,
+                "type": "Movie",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/Despicable_Me_4_Theatrical_Release_Poster.jpeg/220px-Despicable_Me_4_Theatrical_Release_Poster.jpeg"
             }
         ]
   }

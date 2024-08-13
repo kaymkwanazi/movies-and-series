@@ -4,41 +4,41 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Navbar } from './Navbar';
 
-export const MovieDetails = () => {
-  const pathToMovies = '../../../Database/movies.json';
+export const SeriesDetails = () => {
+  const pathToSeries = '../../../Database/series.json';
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const [series, setSeries] = useState(null);
 
   useEffect(() => {
-    axios.get(`../../../Database/movies.json`)
+    axios.get(`../../../Database/series.json`)
       .then(response => {
-        const movieData = response.data.movies.find(m => m.movieID === parseInt(id));
-        setMovie(movieData);
+        const seriesData = response.data.series.find(m => m.seriesID === parseInt(id));
+        setSeries(seriesData);
       })
       .catch(error => {
-        console.error('Error fetching movie details:', error);
+        console.error('Error fetching series details:', error);
       });
   }, [id]);
 
-  if (!movie) return <div>Loading...</div>;
+  if (!series) return <div>Loading...</div>;
 
   return (
     <>
-     <Navbar title={movie.title} />
-    <div className="flex flex-wrap justify-center items-center h-screen bg-gray-100">
+     <Navbar title={series.title} />
+    <div className="flex justify-center items-center h-screen bg-gray-100">
         <img
-          src={movie.imageUrl}
-          alt={movie.title}
-          className="w-64 h-auto rounded-lg shadow-md mb-10"
+          src={series.imageUrl}
+          alt={series.title}
+          className="w-64 h-auto rounded-lg shadow-md"
         />
         <div className="ml-20">
-            <h1 className="text-3xl font-bold mb-5">{movie.title}</h1>
+            <h1 className="text-3xl font-bold mb-4">{series.title}</h1>
           <p className="text-gray-700 mb-4 whitespace-pre-line">
-            {movie.description}</p>
-          <p><strong>Country:</strong> {movie.country}</p>
-          <p><strong>Genre:</strong> {movie.genre.join(', ')}</p>
-          <p><strong>Year:</strong> {movie.year}</p>
-          <p><strong>Type:</strong> {movie.type}</p>
+            {series.description}</p>
+          <p><strong>Country:</strong> {series.country}</p>
+          <p><strong>Genre:</strong> {series.genre.join(', ')}</p>
+          <p><strong>Year:</strong> {series.year}</p>
+          <p><strong>Type:</strong> {series.type}</p>
 
             <div className="mt-6 flex space-x-4">
                 <button

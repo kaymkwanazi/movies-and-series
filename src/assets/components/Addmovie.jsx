@@ -1,6 +1,8 @@
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { Navbar } from './Navbar';
+import React, {useEffect, useState} from 'react';
 
 
 export const Addmovie = () => {
@@ -33,15 +35,52 @@ export const Addmovie = () => {
         { name: 'South Africa' }
     ];
 
+    const [image, setImage] = useState (null);
+    const [error, setError] = useState ('');
+
+    const handleImageUpload = (e) => {
+      const file = e.target.files[0];
+      if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+              const img = new Image();
+              img.src = event.target.result;
+              setImage(img)
+          };
+          reader.readAsDataURL(file);
+          
+      }
+  };
+
   return (
     <div>
         <div>
-          <h1 className='absolute top-1/4 left-1/3 ml-20 text-white text-4xl font-bold'>ADD MOVIE/SERIES</h1>
+          <Navbar title='Add Movie/Series' />
         </div>
         <div className='flex mt-20'>
         {/* First Column */}
         <div className='w-1/2'>
-          {/* Content for the first column can go here */}
+           <div className="ml-96 items-center justify-center min-h-screen bg-gray-100">
+              <div className="w-72 h-80 border-2 border-none bg-slate-300 flex items-center justify-center text-center">
+                  <label htmlFor="file-upload" className="cursor-pointer text-black">
+                      {image ? (
+                          <img src={image} alt="Uploaded" className="w-full h-full object-cover" />
+                      ) : (
+                          <>
+                              Upload Movie Poster<br />
+                          </>
+                      )}
+                  </label>
+                  <input
+                      type="file"
+                      id="file-upload"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleImageUpload}
+                  />
+              </div>
+            {error && <p className="text-red-500 mt-2">{error}</p>}
+          </div>
         </div>
         {/* Second Column */}
         <div className='w-1/2'>
@@ -96,7 +135,7 @@ export const Addmovie = () => {
                   lineHeight: '18.15px',
                   textAlign: 'left'
                 }} 
-                htmlFor='coutry'>
+                htmlFor='country'>
                 Country
               </label>
               <Autocomplete
