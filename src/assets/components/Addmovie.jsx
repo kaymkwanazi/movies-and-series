@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Navbar } from './Navbar';
 import React, {useEffect, useState} from 'react';
+import fs from 'fs'
 
 
 export const Addmovie = () => {
@@ -37,19 +38,60 @@ export const Addmovie = () => {
 
     const [image, setImage] = useState (null);
     const [error, setError] = useState ('');
+    const [title, setTitle] = useState ([]);
+    const [description, setDescription] = useState ([]);
+    const [country, setCountry] = useState ([]);
+    const [year, setYear] = useState ([]);
 
     const handleImageUpload = (e) => {
       const file = e.target.files[0];
-      if (file) {
-          const reader = new FileReader();
-          reader.onload = (event) => {
-              const img = new Image();
-              img.src = event.target.result;
-              setImage(img)
-          };
-          reader.readAsDataURL(file);
-          
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const img = new Image();
+          img.src = event.target.result;
+          img.onload = () => setImage(img);
+          img.onerror = () => setError('Error loading image');
+        };
+        reader.onerror = () => setError('Error reading file');
+        reader.readAsDataURL(file);
+      } else {
+        setError('Please upload a valid image file');
       }
+    };
+
+    const handleSave = () => {
+      if (title && description && country && year) {
+        const newMovie = {
+          title,
+          description,
+          country,
+          year
+    };
+    
+    // Readind existing file
+    fs.readFile ('movies.json','utf-8',(err,data) => {
+      if(err) {
+        setError('Error finding file')
+        return;
+      }
+
+      const movies = JSON.parse(data);
+      movies.movies.push(newMovie);
+    
+        fs.writeFile('movies.json', JSON.stringify(movies, null, 2), (err) => {
+          if (err) {
+            setError('Error writing file');
+            return;
+          }
+
+          setError('Movie saved successfully');
+        });
+      });
+      } else {
+        setError('Please fill out all fields');
+      }
+          
   };
 
   return (
@@ -58,26 +100,17 @@ export const Addmovie = () => {
           <Navbar title='Add Movie/Series' />
         </div>
         <div className='flex mt-20'>
-        {/* First Column */}
+        {/* First Column for poster uploading */}
         <div className='w-1/2'>
            <div className="ml-96 items-center justify-center min-h-screen bg-gray-100">
-              <div className="w-72 h-80 border-2 border-none bg-slate-300 flex items-center justify-center text-center">
+              <div className="w-80 h-96 border-2 border-none bg-slate-300 flex items-center justify-center text-center">
                   <label htmlFor="file-upload" className="cursor-pointer text-black">
-                      {image ? (
-                          <img src={image} alt="Uploaded" className="w-full h-full object-cover" />
-                      ) : (
-                          <>
-                              Upload Movie Poster<br />
-                          </>
-                      )}
+                  <input type="file" onChange={handleImageUpload} />
+                      {error && <p>{error}</p>}
+                      {image && <img src={image.src} alt="Uploaded" />}
+                      
                   </label>
-                  <input
-                      type="file"
-                      id="file-upload"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={handleImageUpload}
-                  />
+                  
               </div>
             {error && <p className="text-red-500 mt-2">{error}</p>}
           </div>
@@ -95,14 +128,16 @@ export const Addmovie = () => {
                   lineHeight: '18.15px',
                   textAlign: 'left'
                 }} 
-                htmlFor='movieName'>
+                htmlFor='title'>
                 Movie/ Series Name
               </label>
               <input
                 className='w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none border border-gray rounded'
-                id='movieName'
+                id='title'
                 type='text'
                 placeholder='Movie/ Series Name'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
 
@@ -114,18 +149,19 @@ export const Addmovie = () => {
                   lineHeight: '18.15px',
                   textAlign: 'left'
                 }} 
-                htmlFor='movieName'>
+                htmlFor='description'>
                 Description
               </label>
               <textarea
                 className='w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none border border-gray rounded'
                 id='description'
                 placeholder='Movie/ Series Description'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 rows='4'
                 />
             </div>
 
-           
 
            <div className='mb-4'>
               <label  className='block text-black-500 text-sm font-normal mb-2'
@@ -159,9 +195,12 @@ export const Addmovie = () => {
               </label>
               <input
                 className='w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none border border-gray rounded'
-                id='coutry'
+                id='country'
                 type='text'
                 placeholder='2024 / 08 / 01'
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+
               />
             </div>
 
@@ -202,11 +241,8 @@ export const Addmovie = () => {
 
              <div className='mb-4'>
                 <div className='w-full'>
-                    <button
-                      className='w-full py-2 px-6 bg-[#7379FF] text-white rounded-full'
-                    >
-                      Save
-                    </button>
+                    <button onClick='saveContent()' className='w-full py-2 px-6 bg-[#7379FF] text-white rounded-full'>Save</button>
+                    {error && <p>{error}</p>}
                 </div>
             </div>
            

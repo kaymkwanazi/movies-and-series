@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Navbar } from './Navbar';
+import './App.css';
 
 export const MovieDetails = () => {
   const pathToMovies = '../../../Database/movies.json';
@@ -20,6 +21,12 @@ export const MovieDetails = () => {
       });
   }, [id]);
 
+  const deleteMovie = (title) => {
+    const updatedMovies = movie.filter(movie => movie.title !== title);
+    // setMovies(updatedMovies);
+    // Optionally, update the JSON file on the server
+  };
+  
   if (!movie) return <div>Loading...</div>;
 
   return (
@@ -54,15 +61,16 @@ export const MovieDetails = () => {
                 ><Link to='/Addmovie'>Edit</Link>
                 
                 </button>
-                <button
-                className="bg-indigo-500 text-white py-1 px-6 rounded-full"
-                style={{
-                    backgroundColor: '#7379FF',
-                    borderRadius: '15px 15px 15px 15px',
-                    padding: '7px 24px',
-                    width: '105px',
-                    height: '32px',
-                    opacity: 1
+                {/* delete button */}
+                <button onClick={() => deleteMovie(movie.title)} 
+                    className="bg-indigo-500 text-white py-1 px-6 rounded-full"
+                    style={{
+                        backgroundColor: '#7379FF',
+                        borderRadius: '15px 15px 15px 15px',
+                        padding: '7px 24px',
+                        width: '105px',
+                        height: '32px',
+                        opacity: 1
                 }}
                 >
                 Delete
