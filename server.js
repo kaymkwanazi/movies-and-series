@@ -1,43 +1,30 @@
-const express = require('express');
+/* eslint-disable no-undef */
+import express from 'express';
+import fs from 'fs';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+
 const app = express();
-const port = 5173;
-const fs = require('fs')
-const path = require ('path')
+const PORT = 3000;
+app.use(cors());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-app.use(express.json());
-
-// //defining route
 app.get('/', (req, res) => {
-    res.send();
+  res.send('<h1>Welcome to the Movie/Series API</h1><p>Use the <code>/write-file</code> endpoint to save data.</p>');
 });
 
-//start server
-app.listen(port, () => {
-    console.log('Server is running on http://localhost:${port}');
+app.post('/write-file', async (req, res) => {
+    const { fileName, content } = req.body;
+    const filePath = `./Database/${fileName}`;
+
+    console.log("🚀 ~ app.post ~ filePath:", filePath)
+    console.log(content)
+
+  
+    
 });
 
-app.post('/Addmovie', (req, res) => {
-    const newContent = req.body;
-
-    if (!newContent.type) {
-
-        return res.status(400).send('Content type (movie or series) is required');
-    }
-
-    const moviesPath = path.join(__dirname, 'movies.json');
-    const seriesPath = path.join(__dirname, 'series.json')
-    let contentList = [];
-
-    if (fs.existsSync(filePath)) {
-        const data = fs.readFileSync(filePath);
-        contentList = JSON.parse(data);
-      }
-
-      contentList.push(newContent);
- 
-    fs.writeFileSync(filePath, JSON.stringify(contentList, null, 2));
-
-      console.log('New content added:', newContent);
-      res.send('Content saved successfully');
-
-    });
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});

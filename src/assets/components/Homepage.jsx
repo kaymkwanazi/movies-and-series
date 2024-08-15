@@ -98,7 +98,7 @@ export const Homepage = () => {
                       ))}
                   </div>
                   <div className="flex flex-wrap justify-end items-end">
-                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>
+                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-96 mt-5 text-white text-xs'>
                           <Link to='/series'>More</Link>
                       </button>
                   </div>

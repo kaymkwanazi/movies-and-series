@@ -29,7 +29,7 @@ export const Series = () => {
         </div>
 
     <div>
-      <div className='flex justify-center space-x-16 mt-20'>
+      <div className='flex flex-wrap justify-center space-x-16 mt-20'>
             {series.slice(0, 4).map((series, index) => (
               <Link to= {`/series/${series.seriesID}/${series.title}`} key={index} >
                   <img
@@ -40,7 +40,7 @@ export const Series = () => {
               </Link>
             ))}
           </div>
-          <div className='flex justify-center space-x-16'>
+          <div className='flex flex-wrap justify-center space-x-16'>
             {series.slice(4, 8).map((series, index) => (
               <Link to= {`/series/${series.seriesID}/${series.title}`} key={index} >
                 <img
@@ -52,7 +52,7 @@ export const Series = () => {
              </Link>
             ))}
           </div>
-          <div className='flex justify-center space-x-16'>
+          <div className='flex flex-wrap justify-center space-x-16'>
             {series.slice(8, 12).map((series, index) => (
               <Link to= {`/series/${series.seriesID}/${series.title}`} key={index} >
                 <img
@@ -64,8 +64,20 @@ export const Series = () => {
              </Link>
             ))}
           </div>
-          <div className='flex justify-center space-x-16'>
-            {series.slice(12,16).map((series, index) => (
+          <div className='flex flex-wrap justify-center space-x-16'>
+            {series.slice(12, 16).map((series, index) => (
+              <Link to= {`/series/${series.seriesID}/${series.title}`} key={index} >
+                <img
+                    key={index}
+                    src={series.imageUrl}
+                    alt={series.title}
+                    className='h-56 w-40 object-container mt-20'
+                  />
+             </Link>
+            ))}
+          </div>
+          <div className='flex flex-wrap justify-center space-x-16'>
+            {series.slice(16,20).map((series, index) => (
               <Link to= {`/series/${series.seriesID}/${series.title}`} key={index} >
                 <img
                     key={index}

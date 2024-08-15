@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Navbar } from './Navbar';
-import './App.css';
+
 
 export const MovieDetails = () => {
   const pathToMovies = '../../../Database/movies.json';
@@ -59,8 +60,8 @@ export const MovieDetails = () => {
                     opacity: 1
                 }}
                 ><Link to='/Addmovie'>Edit</Link>
-                
                 </button>
+                
                 {/* delete button */}
                 <button onClick={() => deleteMovie(movie.title)} 
                     className="bg-indigo-500 text-white py-1 px-6 rounded-full"

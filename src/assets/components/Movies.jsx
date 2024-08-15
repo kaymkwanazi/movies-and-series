@@ -52,7 +52,7 @@ export const Movies = () => {
              </Link>
             ))}
           </div>
-          <div className='flex justify-center space-x-16'>
+          <div className='flex flex-wrap justify-center space-x-16'>
             {movies.slice(8, 12).map((movie, index) => (
                <Link to= {`/movies/${movie.movieID}/${movie.title}`} key={index} >
                    <img
@@ -64,8 +64,20 @@ export const Movies = () => {
                 </Link>
               ))}
           </div>
-          <div className='flex justify-center space-x-16'>
+          <div className='flex flex-wrap justify-center space-x-16'>
             {movies.slice(12, 16).map((movie, index) => (
+               <Link to= {`/movies/${movie.movieID}/${movie.title}`} key={index} >
+                   <img
+                      key={index}
+                      src={movie.imageUrl}
+                      alt={movie.title}
+                      className='h-56 w-40 object-container mt-20'
+                    />
+                </Link>
+              ))}
+          </div>
+          <div className='flex flex-wrap justify-center space-x-16'>
+            {movies.slice(16, 20).map((movie, index) => (
                <Link to= {`/movies/${movie.movieID}/${movie.title}`} key={index} >
                    <img
                       key={index}
