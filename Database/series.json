@@ -1,167 +1,222 @@
 {
-    "series": [
-      {
-        "seriesID": 1,
-        "title": "Loki",
-        "description": "The god of mischief steps out of his brother's shadow to embark on \nan adventure that takes place after the events of Avengers: Endgame.",
-        "country": "USA",
-        "genre": ["Action", "Adventure", "Fantasy"],
-        "year": 2021,
-        "type": "Series",
-        "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHel80alzgYyna6UG8WpsVmyg-rM5f_zl5Ta_UnAHzIFA4nb6l"
-      },
-      {
-        "seriesID": 2,
-        "title": "Wednesday",
-        "description": "Follows Wednesday Addams' years as a student as \nshe masters her emerging psychic ability and solves mysteries.",
-        "country": "USA",
-        "genre": ["Comedy", "Horror", "Mystery"],
-        "year": 2022,
-        "type": "Series",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/66/Wednesday_Netflix_series_poster.png"
-      },
-      {
-        "seriesID": 3,
-        "title": "The Vampire Diaries",
-        "description": "Two vampire brothers, good Stefan and the evil Damon \ncompete for the love of Elena Gilbert.",
-        "country": "USA",
-        "genre": ["Drama", "Fantasy", "Horror"],
-        "year": 2009,
-        "type": "Series",
-        "imageUrl": "https://m.media-amazon.com/images/I/81iRry5N2lL._AC_UF894,1000_QL80_.jpg"
-      },
-      {
-        "seriesID": 4,
-        "title": "House of the Dragon",
-        "description": "A prequel to Game of Thrones, exploring the history of House Targaryen.",
-        "country": "USA",
-        "genre": ["Action", "Adventure", "Drama"],
-        "year": 2022,
-        "type": "Series",
-        "imageUrl": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p22229698_b_v13_ac.jpg"
-      },
-      {
-        "seriesID": 5,
-        "title": "Game of Thrones",
-        "description": "Nine noble families fight for control over the lands of Westeros, \nwhile an ancient enemy returns after being dormant for millennia.",
-        "country": "USA",
-        "genre": ["Action", "Adventure", "Drama"],
-        "year": 2011,
-        "type": "Series",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e0/Game_of_Thrones_Season_8.png"
-      },
-      {
-        "seriesID": 6,
-        "title": "Stranger Things",
-        "description": "When a young boy disappears, a small town uncovers a \nmystery involving secret experiments and supernatural forces.",
-        "country": "USA",
-        "genre": ["Drama", "Fantasy", "Horror"],
-        "year": 2016,
-        "type": "Series",
-        "imageUrl": "https://images.ctfassets.net/4cd45et68cgf/22eaxyrfqLTOmD0ZgFJDX0/6d7b8a0f4c3130fd87c9921cbd11d180/image5.jpg?w=1200"
-      },
-      {
-        "seriesID": 7,
-        "title": "Squid Game",
-        "description": "Hundreds of cash-strapped contestants accept an invitation to \ncompete in children's games for a tempting prize, but the stakes are deadly.",
-        "country": "South Korea",
-        "genre": ["Action", "Drama", "Mystery"],
-        "year": 2021,
-        "type": "Series",
-        "imageUrl": "https://th.bing.com/th/id/R.c6dbf0f54ceb1ef179be1e48ceda42c2?rik=vk1zbOebb9Hl%2bg&pid=ImgRaw&r=0"
-      },
-      {
-        "seriesID": 8,
-        "title": "Rick and Morty",
-        "description": "An animated series that follows the exploits \nof a super scientist and his not-so-bright grandson.",
-        "country": "USA",
-        "genre": ["Animation", "Adventure", "Comedy"],
-        "year": 2013,
-        "type": "Series",
-        "imageUrl": "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_FMjpg_UX1000_.jpg"
-      },
-      {
-        "seriesID": 9,
-        "title": "The Originals",
-        "description": "A spin-off of The Vampire Diaries, focusing \non the first family of vampires, the Mikaelsons.",
-        "country": "USA",
-        "genre": ["Drama", "Fantasy", "Horror"],
-        "year": 2013,
-        "type": "Series",
-        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3KtsQGuRcs9FYnOGb2OuzwWFShhAQSqSpdQ&s"
-      },
-      {
-        "seriesID": 10,
-        "title": "Bridgerton",
-        "description": "Wealth, lust, and betrayal set against the backdrop of Regency-era England, \nseen through the eyes of the powerful Bridgerton family.",
-        "country": "USA",
-        "genre": ["Drama", "Romance"],
-        "year": 2020,
-        "type": "Series",
-        "imageUrl": "https://www.womanandhomemagazine.co.za/wp-content/uploads/2024/05/MV5BMGEyYzBkNzgtZWU4Ni00YzY3LWFmODYtMDliZWJlNmY1ZTRkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
-      },
-      {
-        "seriesID": 11,
-        "title": "Queen Charlotte",
-        "description": "A spin-off of Bridgerton that focuses on the rise to power of Queen Charlotte.",
-        "country": "USA",
-        "genre": ["Drama", "Romance"],
-        "year": 2023,
-        "type": "Series",
-        "imageUrl": "https://m.media-amazon.com/images/M/MV5BNWYwNzhhNzMtMWM2Yi00NzdlLTgxNmUtYWI2YTdiNmFmNzQwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
-      },
-      {
-        "seriesID": 12,
-        "title": "The Big Bang Theory",
-        "description": "A group of brilliant but socially awkward scientists' \nlives are forever changed when a free-spirited beauty \nnamed Penny moves in next door.",
-        "country": "USA",
-        "genre": ["Comedy", "Romance"],
-        "year": 2007,
-        "type": "Series",
-        "imageUrl": "https://resizing.flixster.com/TDKScN7RcHn17jXPT256SytR388=/fit-in/352x330/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p185554_b_v9_bk.jpg"
-      },
-      {
-        "seriesID": 13,
-        "title": "Red Ink",
-        "description": "A tense thriller exploring the murky world of \njournalism and the high stakes of investigative reporting.",
-        "country": "South Africa",
-        "genre": ["Drama", "Thriller"],
-        "year": 2024,
-        "type": "Series",
-        "imageUrl": " https://m.media-amazon.com/images/M/MV5BYzQyNzk3ZWQtMWFiYS00NmNmLTk1NTQtYjdmOTJiOTgxYmZlXkEyXkFqcGdeQXVyODQyNjM1NjY@._V1_.jpg"
-      },
-      {
-        "seriesID": 14,
-        "title": "Blood and Water",
-        "description": "A local teen uncovers her family's secret past \nand navigates the complicated world of a South African high school.",
-        "country": "South Africa",
-        "genre": ["Drama", "Mystery"],
-        "year": 2020,
-        "type": "Series",
-        "imageUrl": " https://th.bing.com/th/id/R.37ad5687da1256f7b3247805b53a0faa?rik=xbPycLjY8ZWSpA&riu=http%3a%2f%2fstatic.tvmaze.com%2fuploads%2fimages%2foriginal_untouched%2f256%2f641071.jpg&ehk=ouictU5mEp8ts8DH73tXI%2bSj8J776V78Wa4L92tni5c%3d&risl=&pid=ImgRaw&r=0"
-      },
-      {
-        "seriesID": 15,
-        "title": "The Rookie",
-        "description": "Starting over isn't easy, especially for John Nolan who, after a \nlife-altering incident, is pursuing his dream of joining the LAPD. As their oldest rookie, he's met with \nskepticism from those who see him as just a walking midlife crisis.",
-        "country": "USA",
-        "genre": ["Drama", "Action","Crime"],
-        "year": 2018,
-        "type": "Series",
-        "imageUrl": "https://th.bing.com/th/id/OIP.GrHKqFhBI7iMq9PJ97FdnAHaLH?rs=1&pid=ImgDetMain"
-      },
-      {
-        "seriesID": 16,
-        "title": "All American",
-        "description": "When a star high school football player from South Central is recruited to \nplay for Beverly Hills High School, two separate worlds collide.",
-        "country": "USA",
-        "genre": ["Drama", "Sport"],
-        "year": 2018,
-        "type": "Series",
-        "imageUrl": "https://th.bing.com/th/id/R.5ed2bfc2b43fbf153f7136d7239c9776?rik=0uHy011wrlIDNQ&pid=ImgRaw&r=0"
-      }
-      
-    
-    ]
-  }
-  
+  "series": [
+    {
+      "seriesID": 1,
+      "title": "Loki",
+      "description": "The god of mischief steps out of his brother's shadow to embark on \nan adventure that takes place after the events of Avengers: Endgame.",
+      "country": "USA",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "year": 2021,
+      "type": "Series",
+      "imageUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSHel80alzgYyna6UG8WpsVmyg-rM5f_zl5Ta_UnAHzIFA4nb6l"
+    },
+    {
+      "seriesID": 2,
+      "title": "Wednesday",
+      "description": "Follows Wednesday Addams' years as a student as \nshe masters her emerging psychic ability and solves mysteries.",
+      "country": "USA",
+      "genre": [
+        "Comedy",
+        "Horror",
+        "Mystery"
+      ],
+      "year": 2022,
+      "type": "Series",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/66/Wednesday_Netflix_series_poster.png"
+    },
+    {
+      "seriesID": 3,
+      "title": "The Vampire Diaries",
+      "description": "Two vampire brothers, good Stefan and the evil Damon \ncompete for the love of Elena Gilbert.",
+      "country": "USA",
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Horror"
+      ],
+      "year": 2009,
+      "type": "Series",
+      "imageUrl": "https://m.media-amazon.com/images/I/81iRry5N2lL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+      "seriesID": 4,
+      "title": "House of the Dragon",
+      "description": "A prequel to Game of Thrones, exploring the history of House Targaryen.",
+      "country": "USA",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "year": 2022,
+      "type": "Series",
+      "imageUrl": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p22229698_b_v13_ac.jpg"
+    },
+    {
+      "seriesID": 5,
+      "title": "Game of Thrones",
+      "description": "Nine noble families fight for control over the lands of Westeros, \nwhile an ancient enemy returns after being dormant for millennia.",
+      "country": "USA",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "year": 2011,
+      "type": "Series",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e0/Game_of_Thrones_Season_8.png"
+    },
+    {
+      "seriesID": 6,
+      "title": "Stranger Things",
+      "description": "When a young boy disappears, a small town uncovers a \nmystery involving secret experiments and supernatural forces.",
+      "country": "USA",
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Horror"
+      ],
+      "year": 2016,
+      "type": "Series",
+      "imageUrl": "https://images.ctfassets.net/4cd45et68cgf/22eaxyrfqLTOmD0ZgFJDX0/6d7b8a0f4c3130fd87c9921cbd11d180/image5.jpg?w=1200"
+    },
+    {
+      "seriesID": 7,
+      "title": "Squid Game",
+      "description": "Hundreds of cash-strapped contestants accept an invitation to \ncompete in children's games for a tempting prize, but the stakes are deadly.",
+      "country": "South Korea",
+      "genre": [
+        "Action",
+        "Drama",
+        "Mystery"
+      ],
+      "year": 2021,
+      "type": "Series",
+      "imageUrl": "https://th.bing.com/th/id/R.c6dbf0f54ceb1ef179be1e48ceda42c2?rik=vk1zbOebb9Hl%2bg&pid=ImgRaw&r=0"
+    },
+    {
+      "seriesID": 8,
+      "title": "Rick and Morty",
+      "description": "An animated series that follows the exploits \nof a super scientist and his not-so-bright grandson.",
+      "country": "USA",
+      "genre": [
+        "Animation",
+        "Adventure",
+        "Comedy"
+      ],
+      "year": 2013,
+      "type": "Series",
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+      "seriesID": 9,
+      "title": "The Originals",
+      "description": "A spin-off of The Vampire Diaries, focusing \non the first family of vampires, the Mikaelsons.",
+      "country": "USA",
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Horror"
+      ],
+      "year": 2013,
+      "type": "Series",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3KtsQGuRcs9FYnOGb2OuzwWFShhAQSqSpdQ&s"
+    },
+    {
+      "seriesID": 10,
+      "title": "Bridgerton",
+      "description": "Wealth, lust, and betrayal set against the backdrop of Regency-era England, \nseen through the eyes of the powerful Bridgerton family.",
+      "country": "USA",
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "year": 2020,
+      "type": "Series",
+      "imageUrl": "https://www.womanandhomemagazine.co.za/wp-content/uploads/2024/05/MV5BMGEyYzBkNzgtZWU4Ni00YzY3LWFmODYtMDliZWJlNmY1ZTRkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"
+    },
+    {
+      "seriesID": 11,
+      "title": "Queen Charlotte",
+      "description": "A spin-off of Bridgerton that focuses on the rise to power of Queen Charlotte.",
+      "country": "USA",
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "year": 2023,
+      "type": "Series",
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BNWYwNzhhNzMtMWM2Yi00NzdlLTgxNmUtYWI2YTdiNmFmNzQwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+    },
+    {
+      "seriesID": 12,
+      "title": "The Big Bang Theory",
+      "description": "A group of brilliant but socially awkward scientists' \nlives are forever changed when a free-spirited beauty \nnamed Penny moves in next door.",
+      "country": "USA",
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "year": 2007,
+      "type": "Series",
+      "imageUrl": "https://resizing.flixster.com/TDKScN7RcHn17jXPT256SytR388=/fit-in/352x330/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p185554_b_v9_bk.jpg"
+    },
+    {
+      "seriesID": 13,
+      "title": "Red Ink",
+      "description": "A tense thriller exploring the murky world of \njournalism and the high stakes of investigative reporting.",
+      "country": "South Africa",
+      "genre": [
+        "Drama",
+        "Thriller"
+      ],
+      "year": 2024,
+      "type": "Series",
+      "imageUrl": " https://m.media-amazon.com/images/M/MV5BYzQyNzk3ZWQtMWFiYS00NmNmLTk1NTQtYjdmOTJiOTgxYmZlXkEyXkFqcGdeQXVyODQyNjM1NjY@._V1_.jpg"
+    },
+    {
+      "seriesID": 14,
+      "title": "Blood and Water",
+      "description": "A local teen uncovers her family's secret past \nand navigates the complicated world of a South African high school.",
+      "country": "South Africa",
+      "genre": [
+        "Drama",
+        "Mystery"
+      ],
+      "year": 2020,
+      "type": "Series",
+      "imageUrl": " https://th.bing.com/th/id/R.37ad5687da1256f7b3247805b53a0faa?rik=xbPycLjY8ZWSpA&riu=http%3a%2f%2fstatic.tvmaze.com%2fuploads%2fimages%2foriginal_untouched%2f256%2f641071.jpg&ehk=ouictU5mEp8ts8DH73tXI%2bSj8J776V78Wa4L92tni5c%3d&risl=&pid=ImgRaw&r=0"
+    },
+    {
+      "seriesID": 15,
+      "title": "The Rookie",
+      "description": "Starting over isn't easy, especially for John Nolan who, after a \nlife-altering incident, is pursuing his dream of joining the LAPD. As their oldest rookie, he's met with \nskepticism from those who see him as just a walking midlife crisis.",
+      "country": "USA",
+      "genre": [
+        "Drama",
+        "Action",
+        "Crime"
+      ],
+      "year": 2018,
+      "type": "Series",
+      "imageUrl": "https://th.bing.com/th/id/OIP.GrHKqFhBI7iMq9PJ97FdnAHaLH?rs=1&pid=ImgDetMain"
+    },
+    {
+      "seriesID": 16,
+      "title": "All American",
+      "description": "When a star high school football player from South Central is recruited to \nplay for Beverly Hills High School, two separate worlds collide.",
+      "country": "USA",
+      "genre": [
+        "Drama",
+        "Sport"
+      ],
+      "year": 2018,
+      "type": "Series",
+      "imageUrl": "https://th.bing.com/th/id/R.5ed2bfc2b43fbf153f7136d7239c9776?rik=0uHy011wrlIDNQ&pid=ImgRaw&r=0"
+    }
+  ]
+}

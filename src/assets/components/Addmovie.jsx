@@ -6,8 +6,7 @@ import { Navbar } from './Navbar';
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-// import { type } from 'os';
-
+import swal from 'sweetalert';
 
 export const Addmovie = () => {
   const pathToMovies = '../../../Database/movies.json';
@@ -53,7 +52,7 @@ export const Addmovie = () => {
     const [description, setDescription] = useState('');
     const [country, setCountry] = useState('');
     const [year, setYear] = useState('');
-    const [type, setType] = useState('movie');  // default type
+    const [type, setType] = useState('movie');
 
     const handleImageUpload = (e) => {
         const file = e.target.files[0];
@@ -72,46 +71,58 @@ export const Addmovie = () => {
         }
     };
 
-    const writeFile = (fileName, content) => {
+    const writeFile = (fileName, content, type) => {
       const apiEndpoint = 'http://localhost:3000/write-file';
-  
-      axios.post(apiEndpoint, { fileName, content })
-          .then(response => {
-              console.log("🚀 ~ writeFile ~ response.data.message:", response.data.message)
-          })
-              
-          .catch(error => {
-              console.error('Error writing the file:', error);
-              console.log("🚀 ~ writeFile ~ error:", error)
-          });
-  };
 
-    const handleSave = () => {
-      let newEntry = {
-        title,
-        description,
-        country,
-        year,
-       imageUrl: image ? image.src : '',
-    };
-
-    if (type === 'movies'){
-      newEntry = {
-        ...newEntry, movieID: moviesLength + 1,
-      };
-    }
-
-    if (type === 'series'){
-      newEntry = {
-        ...newEntry, seriesID: seriesLength + 1,
-      };
-    }
-    const content = type === 'movie' ? { movies: newEntry } : { series: newEntry };
-    const fileName = type === 'movie' ? 'movies.json' : 'series.json';
-      console.log("🚀 ~ handleSave ~ fileName:", fileName)
       
   
-     writeFile(fileName, content);
+      axios.post(apiEndpoint, { fileName, content, type })
+        .then(response => {
+            swal({
+            title: "Success!",
+            text: `${type} added successfully.`,
+            icon: "success",
+            timer: 5000, 
+            button: false,
+            }).then(() => {
+                if (type === 'movie') window.location.href = '/movies';
+                else if (type === 'series')
+                    window.location.href = '/series';
+            });
+        })
+        .catch(error => {
+            console.error('Error writing the file:', error);
+            console.log("🚀 ~ writeFile ~ error:", error);
+        });
+    };
+
+    const handleSave = () => {
+        let newEntry = {
+            title,
+            description,
+            country,
+            genre: '',
+            year,
+            imageUrl: image ? image.src : '',
+        };
+
+        if (type === 'movie') {
+            newEntry = {
+                movieID: moviesLength + 1, ...newEntry
+            };
+        } else if (type === 'series') {
+            newEntry = {
+                seriesID: seriesLength + 1, ...newEntry
+            };
+        } else {
+            console.error("Unknown type:", type);
+        }
+
+        const content = type === 'movie' ? { movies: newEntry } : { series: newEntry };
+        const fileName = type === 'movie' ? 'movies.json' : 'series.json';
+      
+  
+        writeFile(fileName, content, type);
   };
 
     return (
