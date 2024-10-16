@@ -112,7 +112,8 @@ export const Addmovie = () => {
   };
 
     return (
-        <div>
+      <>
+         <div>
             <Navbar title='Add Movie/Series' />
             <div className='flex mt-20'>
                 {/* First Column for poster uploading */}
@@ -128,7 +129,7 @@ export const Addmovie = () => {
                         {error && <p className="text-red-500 mt-2">{error}</p>}
                     </div>
                 </div>
-              </label>
+              </div>
               <input 
                 type="file"
                 id="file"
@@ -137,7 +138,7 @@ export const Addmovie = () => {
               />
             </div>
     
-            {/* Right section for form inputs */}
+      //  right section of the form
             <div className="w-2/3">
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">Movie/ Series Name</label>
@@ -218,8 +219,10 @@ export const Addmovie = () => {
                 Save
               </button>
             </div>
-          </form>
-        </div>
-    </>
+      </>
+       
+  
+      
+  
      );
 };
