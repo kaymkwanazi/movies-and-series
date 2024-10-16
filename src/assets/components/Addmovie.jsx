@@ -1,62 +1,132 @@
 import React, {useState} from 'react'
 import { Navbar } from './Navbar';
-import Movies from '../../../public/Database/movies.json'
-import Series from '../../../public/Database/series.json'
+import axios from 'axios';
+import fs from 'fs';
+import path from 'path';
+// import { type } from 'os';
+
 
 export const Addmovie = () => {
+  const pathToMovies = '../../../Database/movies.json';
+  const pathToSeries = '../../../Database/series.json';
+  const [movies, setMovies] = useState([]);
+  const [series, setSeries] = useState([]);
+
+    useEffect(() => {
+      axios.get(pathToMovies)
+              .then(response => {
+                  setMovies(response.data.movies);
+              })
+              .catch(error => {
+                  console.error('Error fetching the movie data:', error);
+              });
+      }, []);
+
+    useEffect(() => {
+      axios.get(pathToSeries)
+              .then(response => {
+                setSeries(response.data.series);
+              })
+              .catch(error => {
+                  console.error('Error fetching the movie data:', error);
+              });
+      }, []);
+
+      const moviesLength = movies.length;
+      const seriesLength = series.length;
+
+    const top100Countries = [
+        { name: 'China' },
+        { name: 'India' },
+        { name: 'United States' },
+        { name: 'United Kingdom' },
+        { name: 'South Africa' },
+        // ... other countries
+    ];
+
+    const [image, setImage] = useState(null);
+    const [error, setError] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [country, setCountry] = useState('');
+    const [year, setYear] = useState('');
+    const [type, setType] = useState('movie');  // default type
+
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = () => setImage(img);
+                img.onerror = () => setError('Error loading image');
+            };
+            reader.onerror = () => setError('Error reading file');
+            reader.readAsDataURL(file);
+        } else {
+            setError('Please upload a valid image file');
+        }
+    };
+
+    const writeFile = (fileName, content) => {
+      const apiEndpoint = 'http://localhost:3000/write-file';
   
-    const [formData, setFormData] = useState({
-        name: '',
-        description: '',
-        country: '',
-        year: '',
-        type: 'movie', // Default type is movie
-        file: null,  // For file upload
-      });
-    
-      // Handle form input change
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+      axios.post(apiEndpoint, { fileName, content })
+          .then(response => {
+              console.log("🚀 ~ writeFile ~ response.data.message:", response.data.message)
+          })
+              
+          .catch(error => {
+              console.error('Error writing the file:', error);
+              console.log("🚀 ~ writeFile ~ error:", error)
+          });
+  };
+
+    const handleSave = () => {
+      let newEntry = {
+        title,
+        description,
+        country,
+        year,
+       imageUrl: image ? image.src : '',
+    };
+
+    if (type === 'movies'){
+      newEntry = {
+        ...newEntry, movieID: moviesLength + 1,
       };
-    
-      // Handle file input change
-      const handleFileChange = (e) => {
-        setFormData({ ...formData, file: e.target.files[0] });
+    }
+
+    if (type === 'series'){
+      newEntry = {
+        ...newEntry, seriesID: seriesLength + 1,
       };
-    
-      // Handle form submission
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        // You can submit the formData to your API here
-        // Example with fetch:
-        
-        const formDataToSend = new FormData();
-        formDataToSend.append("name", formData.name);
-        formDataToSend.append("description", formData.description);
-        formDataToSend.append("country", formData.country);
-        formDataToSend.append("year", formData.year);
-        formDataToSend.append("type", formData.type);
-        formDataToSend.append("file", formData.file);
-        
-        fetch(Movies, {
-          method: 'POST',
-          body: formDataToSend,
-        }).then((response) => response.json());
-        
-      };
-    
-      return (
-        <>
-        <Navbar title= "Add movie/series" />
-        <div className="flex justify-center items-center h-screen">
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-1/2 flex space-x-4">
-            {/* Left section for file input */}
-            <div className="w-1/3 flex flex-col justify-center items-center bg-gray-200 p-4">
-              <label htmlFor="file" className="cursor-pointer">
-                <div className="bg-gray-400 text-center p-3 mb-20 rounded-md">
-                  {formData.file ? formData.file.name : 'Choose File'}
+    }
+    const content = type === 'movie' ? { movies: newEntry } : { series: newEntry };
+    const fileName = type === 'movie' ? 'movies.json' : 'series.json';
+      console.log("🚀 ~ handleSave ~ fileName:", fileName)
+      
+  
+     writeFile(fileName, content);
+  };
+
+    return (
+        <div>
+            <Navbar title='Add Movie/Series' />
+            <div className='flex mt-20'>
+                {/* First Column for poster uploading */}
+                <div className='w-1/2 flex-wrap'>
+                    <div className="ml-96 object-contain items-center justify-center min-h-screen bg-gray-100">
+                        <div className="w-80 h-96 border-2 border-none bg-slate-300 flex flex-wrap items-center justify-center text-center">
+                            <label htmlFor="file-upload" className="cursor-pointer text-black">
+                                <input type="file" onChange={handleImageUpload} />
+                                {error && <p>{error}</p>}
+                                {image && <img src={image.src} alt="Uploaded" />}
+                            </label>
+                        </div>
+                        {error && <p className="text-red-500 mt-2">{error}</p>}
+                    </div>
                 </div>
               </label>
               <input 

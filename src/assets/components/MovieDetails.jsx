@@ -30,8 +30,6 @@ export const MovieDetails = ({movies}) => {
 
   const deleteMovie = (title) => {
     const updatedMovies = movie.filter(movie => movie.title !== title);
-    // setMovies(updatedMovies);
-    // Optionally, update the JSON file on the server
   };
   
   if (!movie) return <div>Loading...</div>;
@@ -50,7 +48,7 @@ export const MovieDetails = ({movies}) => {
           <p className="text-gray-700 mb-4 whitespace-pre-line">
             {movie.description}</p>
           <p><strong>Country:</strong> {movie.country}</p>
-          <p><strong>Genre:</strong> {movie.genre.join(', ')}</p>
+          <p><strong>Genre:</strong> {Array.isArray(movie.genre) ? movie.genre.join(', ') : movie.genre}</p>
           <p><strong>Year:</strong> {movie.year}</p>
           <p><strong>Type:</strong> {movie.type}</p>
 

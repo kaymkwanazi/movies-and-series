@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -33,7 +34,6 @@ export const Homepage = () => {
       }, []);
 
 
-
   return (
     <div>
       <Navbar title='' />
@@ -64,6 +64,11 @@ export const Homepage = () => {
                   ))}
                 </div>
                 <div className="flex flex-wrap justify-end items-end">
+                  <Link to='/movies'>
+                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>
+                          More
+                      </button>
+                  </Link>
                 <Link to='/movies'>
                     <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-52 mt-5 text-white text-xs'>More</button>
                     </Link>
@@ -101,6 +106,11 @@ export const Homepage = () => {
                   <Link to='/series'>
                       <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-52 mt-5 text-white text-xs'>More</button>
                    </Link>
+                    <Link to='/series'>
+                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-96 mt-5 text-white text-xs'>
+                          More
+                      </button>
+                    </Link>
                   </div>
             </div>
       

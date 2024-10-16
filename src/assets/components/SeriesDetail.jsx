@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -36,7 +37,7 @@ export const SeriesDetails = () => {
           <p className="text-gray-700 mb-4 whitespace-pre-line">
             {series.description}</p>
           <p><strong>Country:</strong> {series.country}</p>
-          <p><strong>Genre:</strong> {series.genre.join(', ')}</p>
+          <p><strong>Genre:</strong> {Array.isArray(series.genre) ? series.genre.join(', ') : series.genre}</p>
           <p><strong>Year:</strong> {series.year}</p>
           <p><strong>Type:</strong> {series.type}</p>
 
