@@ -5,7 +5,7 @@ import { Navbar } from './Navbar'
 
 export const Series = () => {
   const [series, setSeries] = useState([]);
-  const pathToSeries = '../../../Database/series.json';
+  const pathToSeries = '/Database/series.json';
 
   useEffect(() => {
     axios.get(pathToSeries)
@@ -23,10 +23,10 @@ export const Series = () => {
       </div>
 
       <div className="flex justify-end items-end">
-          <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>
-            <Link to='/Addmovie'>Add</Link>
-          </button>
-        </div>
+        <Link to='/Addmovie'>
+          <button className='bg-custom-blue hover:bg-blue-600 flex flex-wrap rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>Add</button>
+        </Link>
+      </div>
 
     <div>
       <div className='flex flex-wrap justify-center space-x-16 mt-20'>

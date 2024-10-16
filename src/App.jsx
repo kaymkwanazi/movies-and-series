@@ -10,6 +10,7 @@ import { MovieDetails } from './assets/components/MovieDetails'
 import { SeriesDetails } from './assets/components/SeriesDetail'
 
 
+
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
           <Route path='/movies' element={<Movies />} />
           <Route path='/series' element={<Series />} />
           <Route path='/addmovie' element={<Addmovie />} />
+          {/* <Route path='/edit/:id' element={<Edit />} /> */}
           <Route path="/movies/:id/:title" element={<MovieDetails />} />
           <Route path="/series/:id/:title" element={<SeriesDetails />} />
         </Routes>

@@ -6,8 +6,8 @@ import { Navbar } from './Navbar';
 
 
 export const Homepage = () => {
-  const pathToMovies = '../../../Database/movies.json';
-  const pathToSeries = '../../../Database/series.json';
+  const pathToMovies = '/Database/movies.json';
+  const pathToSeries = '/Database/series.json';
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
   
@@ -39,7 +39,7 @@ export const Homepage = () => {
       <Navbar title='' />
       {/* ------------mOVIES-------------- */}
           <div className='mt-20 mb-20 text-center decoration text-xl'>LATEST MOVIES</div>
-            <div>
+            <div className='container mx-auto px-4'>
                 <div className='flex flex-wrap justify-center space-x-16'>
                   {movies.slice(0, 4).map((movie, index) => (
                     <Link to={`/movies/${movie.movieID}/${movie.title}`} key={index}>
@@ -64,16 +64,16 @@ export const Homepage = () => {
                   ))}
                 </div>
                 <div className="flex flex-wrap justify-end items-end">
-                    <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>
-                        <Link to='/movies'>More</Link>
-                    </button>
+                <Link to='/movies'>
+                    <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-52 mt-5 text-white text-xs'>More</button>
+                    </Link>
                 </div>
           </div>
 
           
           {/* -------SERIES----------- */}
           <div className='mt-20 mb-20 text-center decoration text-xl'>LATEST SERIES</div>
-              <div>
+              <div className='container mx-auto px-4'>
                   <div className='flex flex-wrap justify-center space-x-16'>
                       {series.slice(0, 4).map((serie, index) => (
                         <Link to ={`/series/${serie.seriesID}/${serie.title}`} key={index} >
@@ -98,9 +98,9 @@ export const Homepage = () => {
                       ))}
                   </div>
                   <div className="flex flex-wrap justify-end items-end">
-                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-96 mt-5 text-white text-xs'>
-                          <Link to='/series'>More</Link>
-                      </button>
+                  <Link to='/series'>
+                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-52 mt-5 text-white text-xs'>More</button>
+                   </Link>
                   </div>
             </div>
       

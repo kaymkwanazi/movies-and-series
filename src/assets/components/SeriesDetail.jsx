@@ -5,12 +5,12 @@ import { Link, useParams } from 'react-router-dom';
 import { Navbar } from './Navbar';
 
 export const SeriesDetails = () => {
-  const pathToSeries = '../../../Database/series.json';
+  const pathToSeries = '/Database/series.json';
   const { id } = useParams();
   const [series, setSeries] = useState(null);
 
   useEffect(() => {
-    axios.get(`../../../Database/series.json`)
+    axios.get(pathToSeries)
       .then(response => {
         const seriesData = response.data.series.find(m => m.seriesID === parseInt(id));
         setSeries(seriesData);

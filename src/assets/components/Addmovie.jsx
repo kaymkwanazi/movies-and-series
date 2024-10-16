@@ -1,242 +1,155 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import React, {useState} from 'react'
 import { Navbar } from './Navbar';
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
-// import { type } from 'os';
-
+import Movies from '../../../public/Database/movies.json'
+import Series from '../../../public/Database/series.json'
 
 export const Addmovie = () => {
-  const pathToMovies = '../../../Database/movies.json';
-  const pathToSeries = '../../../Database/series.json';
-  const [movies, setMovies] = useState([]);
-  const [series, setSeries] = useState([]);
-
-    useEffect(() => {
-      axios.get(pathToMovies)
-              .then(response => {
-                  setMovies(response.data.movies);
-              })
-              .catch(error => {
-                  console.error('Error fetching the movie data:', error);
-              });
-      }, []);
-
-    useEffect(() => {
-      axios.get(pathToSeries)
-              .then(response => {
-                setSeries(response.data.series);
-              })
-              .catch(error => {
-                  console.error('Error fetching the movie data:', error);
-              });
-      }, []);
-
-      const moviesLength = movies.length;
-      const seriesLength = series.length;
-
-    const top100Countries = [
-        { name: 'China' },
-        { name: 'India' },
-        { name: 'United States' },
-        { name: 'United Kingdom' },
-        { name: 'South Africa' },
-        // ... other countries
-    ];
-
-    const [image, setImage] = useState(null);
-    const [error, setError] = useState('');
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [country, setCountry] = useState('');
-    const [year, setYear] = useState('');
-    const [type, setType] = useState('movie');  // default type
-
-    const handleImageUpload = (e) => {
-        const file = e.target.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                const img = new Image();
-                img.src = event.target.result;
-                img.onload = () => setImage(img);
-                img.onerror = () => setError('Error loading image');
-            };
-            reader.onerror = () => setError('Error reading file');
-            reader.readAsDataURL(file);
-        } else {
-            setError('Please upload a valid image file');
-        }
-    };
-
-    const writeFile = (fileName, content) => {
-      const apiEndpoint = 'http://localhost:3000/write-file';
   
-      axios.post(apiEndpoint, { fileName, content })
-          .then(response => {
-              console.log("🚀 ~ writeFile ~ response.data.message:", response.data.message)
-          })
-              
-          .catch(error => {
-              console.error('Error writing the file:', error);
-              console.log("🚀 ~ writeFile ~ error:", error)
-          });
-  };
-
-    const handleSave = () => {
-      let newEntry = {
-        title,
-        description,
-        country,
-        year,
-       imageUrl: image ? image.src : '',
-    };
-
-    if (type === 'movies'){
-      newEntry = {
-        ...newEntry, movieID: moviesLength + 1,
+    const [formData, setFormData] = useState({
+        name: '',
+        description: '',
+        country: '',
+        year: '',
+        type: 'movie', // Default type is movie
+        file: null,  // For file upload
+      });
+    
+      // Handle form input change
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
       };
-    }
-
-    if (type === 'series'){
-      newEntry = {
-        ...newEntry, seriesID: seriesLength + 1,
+    
+      // Handle file input change
+      const handleFileChange = (e) => {
+        setFormData({ ...formData, file: e.target.files[0] });
       };
-    }
-    const content = type === 'movie' ? { movies: newEntry } : { series: newEntry };
-    const fileName = type === 'movie' ? 'movies.json' : 'series.json';
-      console.log("🚀 ~ handleSave ~ fileName:", fileName)
-      
-  
-     writeFile(fileName, content);
-  };
-
-    return (
-        <div>
-            <Navbar title='Add Movie/Series' />
-            <div className='flex mt-20'>
-                {/* First Column for poster uploading */}
-                <div className='w-1/2 flex-wrap'>
-                    <div className="ml-96 object-contain items-center justify-center min-h-screen bg-gray-100">
-                        <div className="w-80 h-96 border-2 border-none bg-slate-300 flex flex-wrap items-center justify-center text-center">
-                            <label htmlFor="file-upload" className="cursor-pointer text-black">
-                                <input type="file" onChange={handleImageUpload} />
-                                {error && <p>{error}</p>}
-                                {image && <img src={image.src} alt="Uploaded" />}
-                            </label>
-                        </div>
-                        {error && <p className="text-red-500 mt-2">{error}</p>}
-                    </div>
+    
+      // Handle form submission
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        // You can submit the formData to your API here
+        // Example with fetch:
+        
+        const formDataToSend = new FormData();
+        formDataToSend.append("name", formData.name);
+        formDataToSend.append("description", formData.description);
+        formDataToSend.append("country", formData.country);
+        formDataToSend.append("year", formData.year);
+        formDataToSend.append("type", formData.type);
+        formDataToSend.append("file", formData.file);
+        
+        fetch(Movies, {
+          method: 'POST',
+          body: formDataToSend,
+        }).then((response) => response.json());
+        
+      };
+    
+      return (
+        <>
+        <Navbar title= "Add movie/series" />
+        <div className="flex justify-center items-center h-screen">
+          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-1/2 flex space-x-4">
+            {/* Left section for file input */}
+            <div className="w-1/3 flex flex-col justify-center items-center bg-gray-200 p-4">
+              <label htmlFor="file" className="cursor-pointer">
+                <div className="bg-gray-400 text-center p-3 mb-20 rounded-md">
+                  {formData.file ? formData.file.name : 'Choose File'}
                 </div>
-                {/* Second Column */}
-                <div className='w-1/2'>
-                    {/* Div for Form */}
-                    <form className='w-full max-w-md flex-wrap'>
-
-                        <div className='mb-4'>
-                            <label className='block text-black-500 text-sm font-normal mb-2' htmlFor='title'>
-                                Movie/ Series Name
-                            </label>
-                            <input
-                                className='w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none border border-gray rounded'
-                                id='title'
-                                type='text'
-                                placeholder='Movie/ Series Name'
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                        </div>
-
-                        <div className='mb-4'>
-                            <label className='block text-black-500 text-sm font-normal mb-2' htmlFor='description'>
-                                Description
-                            </label>
-                            <textarea
-                                className='w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none border border-gray rounded'
-                                id='description'
-                                placeholder='Movie/ Series Description'
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                rows='4'
-                            />
-                        </div>
-
-                        <div className='mb-4'>
-                            <label className='block text-black-500 text-sm font-normal mb-2' htmlFor='country'>
-                                Country
-                            </label>
-                            <Autocomplete
-                                id="free-solo-demo"
-                                freeSolo
-                                options={top100Countries.map((option) => option.name)}
-                                renderInput={(params) => <TextField {...params} label="Search Country" />}
-                                value={country}
-                                onChange={(event, newValue) => setCountry(newValue)}
-                            />
-                        </div>
-
-                        <div className='mb-4'>
-                            <label className='block text-black-500 text-sm font-normal mb-2' htmlFor='year'>
-                                Year
-                            </label>
-                            <input
-                                className='w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none border border-gray rounded'
-                                id='year'
-                                type='text'
-                                placeholder='yyyy/mm/d'
-                                value={year}
-                                onChange={(e) => setYear(e.target.value)}
-                            />
-                        </div>
-
-                        <div className='mb-4'>
-                          <div className='inline-flex items-center w-full'>
-                              <div className='flex items-center mr-20'>
-                                  <input
-                                      className='mr-1 leading-tight'
-                                      type='radio'
-                                      id='movie'
-                                      name='type'
-                                      value='movie'
-                                      checked={type === 'movie'}
-                                      onChange={() => setType('movie')}
-                                  />
-                                  <label className='text-gray-700' htmlFor='movie'>
-                                      Movie
-                                  </label>
-                              </div>
-                              <div className='flex items-center ml-20'>
-                                  <input
-                                      className='mr-1 leading-tight'
-                                      type='radio'
-                                      id='series'
-                                      name='type'
-                                      value='series'
-                                      checked={type === 'series'}
-                                      onChange={() => setType('series')}
-                                  />
-                                  <label className='text-gray-700' htmlFor='series'>
-                                      Series
-                                  </label>
-                              </div>
-                          </div>
-                        </div>
-
-                        <div className='mb-4'>
-                            <div className='w-full'>
-                                <button type='button' onClick={handleSave} className='w-full py-2 px-6 bg-[#7379FF] text-white rounded-full'>
-                                    Save
-                                </button>
-                                {error && <p>{error}</p>}
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
+              </label>
+              <input 
+                type="file"
+                id="file"
+                className="hidden"
+                onChange={handleFileChange}
+              />
             </div>
+    
+            {/* Right section for form inputs */}
+            <div className="w-2/3">
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Movie/ Series Name</label>
+                <input 
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Movie/ Series Name"
+                  className="mt-1 pl-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+              </div>
+    
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Description</label>
+                <textarea 
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  placeholder="Movie/ Series Description"
+                  className="mt-1 block pl-2 w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                ></textarea>
+              </div>
+    
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Country</label>
+                <input 
+                  type="text"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  placeholder="Search Country"
+                  className="mt-1 pl-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+              </div>
+    
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">Year</label>
+                <input 
+                  type="date"
+                  name="year"
+                  value={formData.year}
+                  onChange={handleChange}
+                  className="mt-1 pl-2 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+              </div>
+    
+              <div className="flex mb-4 space-x-4">
+                <div>
+                  <input 
+                    type="radio"
+                    name="type"
+                    value="movie"
+                    checked={formData.type === 'movie'}
+                    onChange={handleChange}
+                    className="focus:ring-indigo-500"
+                  />
+                  <label className="ml-2 text-sm font-medium text-gray-700">Movie</label>
+                </div>
+    
+                <div>
+                  <input 
+                    type="radio"
+                    name="type"
+                    value="series"
+                    checked={formData.type === 'series'}
+                    onChange={handleChange}
+                    className="focus:ring-indigo-500"
+                  />
+                  <label className="ml-2 text-sm font-medium text-gray-700">Series</label>
+                </div>
+              </div>
+    
+              <button 
+                type="submit"
+                className="bg-indigo-500 text-white font-bold py-2 px-4 rounded-full w-full hover:bg-indigo-700"
+              >
+                Save
+              </button>
+            </div>
+          </form>
         </div>
-    );
-}
+    </>
+     );
+};

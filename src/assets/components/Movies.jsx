@@ -4,10 +4,11 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { Navbar } from './Navbar'
 
-export const Movies = () => {
-  const pathToMovies = '../../../Database/movies.json';
-  const [movies, setMovies] = useState([]);
 
+export const Movies = () => {
+  const pathToMovies = '/Database/movies.json';
+  const [movies, setMovies] = useState([]);
+ 
   useEffect(() => {
     axios.get(pathToMovies)
             .then(response => {
@@ -24,9 +25,9 @@ export const Movies = () => {
           <Navbar title ='LATEST MOVIES' />
         </div>
         <div className="flex justify-end items-end">
-              <button className='bg-custom-blue hover:bg-blue-600 flex flex-wrap rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>
-                 <Link to='/Addmovie'>Add</Link>
-              </button>
+          <Link to='/Addmovie'>
+             <button className='bg-custom-blue hover:bg-blue-600 flex flex-wrap rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>Add</button>
+          </Link>
         </div>
 
         <div className='flex flex-wrap justify-center space-x-16 mt-20'>

@@ -1,18 +1,24 @@
-/* eslint-disable no-unused-vars */
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Navbar } from './Navbar';
+import { useNavigate } from 'react-router-dom'
 
 
-export const MovieDetails = () => {
-  const pathToMovies = '../../../Database/movies.json';
+export const MovieDetails = ({movies}) => {
+  const pathToMovies = '/Database/movies.json';
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
+  const navigate = useNavigate();
+
+  const handleEdit = (id) => {
+    navigate(`/edit/&{id}`); //navigates to edit page with movie/seris ID
+  }
+
+
   useEffect(() => {
-    axios.get(`../../../Database/movies.json`)
+    axios.get(pathToMovies)
       .then(response => {
         const movieData = response.data.movies.find(m => m.movieID === parseInt(id));
         setMovie(movieData);
@@ -49,18 +55,8 @@ export const MovieDetails = () => {
           <p><strong>Type:</strong> {movie.type}</p>
 
             <div className="mt-6 flex space-x-4">
-                <button
-                className="bg-indigo-500 text-white py-1 px-6 rounded-full"
-                style={{
-                    backgroundColor: '#7379FF',
-                    borderRadius: '15px 15px 15px 15px',
-                    padding: '7px 24px',
-                    width: '82px',
-                    height: '32px',
-                    opacity: 1
-                }}
-                ><Link to='/Addmovie'>Edit</Link>
-                </button>
+                <button onClick={() => handleEdit(movie.id)}
+                  className="bg-indigo-500 text-white py-1 px-6 rounded-full">Edit</button>
                 
                 {/* delete button */}
                 <button onClick={() => deleteMovie(movie.title)} 
