@@ -12,13 +12,13 @@
       },
       {
         "seriesID": 2,
-        "title": "Wednesday",
-        "description": "Follows Wednesday Addams' years as a student as \nshe masters her emerging psychic ability and solves mysteries.",
+        "title": "The Good Doctor",
+        "description": "Shaun Murphy, a young surgeon with autism and Savant syndrome, is recruited into the surgical unit of a prestigious hospital.",
         "country": "USA",
-        "genre": ["Comedy", "Horror", "Mystery"],
-        "year": 2022,
+        "genre": ["Medical drama"],
+        "year": 2017,
         "type": "Series",
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/66/Wednesday_Netflix_series_poster.png"
+        "imageUrl": "https://flxt.tmsimg.com/assets/p17114293_b_v13_ac.jpg"
       },
       {
         "seriesID": 3,

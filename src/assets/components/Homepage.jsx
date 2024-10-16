@@ -38,7 +38,7 @@ export const Homepage = () => {
     <div>
       <Navbar title='' />
       {/* ------------mOVIES-------------- */}
-          <div className='mt-20 mb-20 text-center decoration text-xl'>LATEST MOVIES</div>
+          <div className='mt-20 text-center decoration text-xl'>LATEST MOVIES</div>
             <div className='container mx-auto px-4'>
                 <div className='flex flex-wrap justify-center space-x-16'>
                   {movies.slice(0, 4).map((movie, index) => (
@@ -63,13 +63,8 @@ export const Homepage = () => {
                    </Link>
                   ))}
                 </div>
-                <div className="flex flex-wrap justify-end items-end">
+                <div className="flex flex-wrap justify-end items-end">                  
                   <Link to='/movies'>
-                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-64 mt-5 text-white text-xs'>
-                          More
-                      </button>
-                  </Link>
-                <Link to='/movies'>
                     <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-52 mt-5 text-white text-xs'>More</button>
                     </Link>
                 </div>
@@ -77,7 +72,7 @@ export const Homepage = () => {
 
           
           {/* -------SERIES----------- */}
-          <div className='mt-20 mb-20 text-center decoration text-xl'>LATEST SERIES</div>
+          <div className='mt-20 text-center decoration text-xl'>LATEST SERIES</div>
               <div className='container mx-auto px-4'>
                   <div className='flex flex-wrap justify-center space-x-16'>
                       {series.slice(0, 4).map((serie, index) => (
@@ -106,11 +101,7 @@ export const Homepage = () => {
                   <Link to='/series'>
                       <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-52 mt-5 text-white text-xs'>More</button>
                    </Link>
-                    <Link to='/series'>
-                      <button className='bg-custom-blue hover:bg-blue-600 rounded-full py-1 px-6 mr-96 mt-5 text-white text-xs'>
-                          More
-                      </button>
-                    </Link>
+                    
                   </div>
             </div>
       
